@@ -1,3 +1,4 @@
+/* Reset CSS e Estilos Globais */
 * {
   margin: 0;
   padding: 0;
@@ -5,9 +6,12 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-:root {
-  font-size: 62.5%;
 
+/* Definição das cores e fonte padrão do site */
+:root {
+  font-size: 62.5%; /* Definindo o tamanho da fonte em 10px para facilitar cálculos */
+
+  /* Cores personalizadas */
   --color-base-white: #ffffff;
   --color-base-gray-100: #f5f5f5;
   --color-base-gray-300: #8d8d99;
@@ -15,6 +19,7 @@
   --color-base-gray-900: #202024;
 }
 
+/* Estilos globais da fonte */
 html,
 body,
 input {
@@ -22,24 +27,28 @@ input {
 }
 
 body {
+  /* Estilos globais do corpo da página */
   font-size: 1.6rem;
   background-color: var(--color-base-white);
   color: var(--color-base-gray-900);
 }
 
 #app {
+  /* Estilos do container principal */
   display: grid;
   grid-template-rows: max-content 1fr max-content;
   height: 100vh;
 }
 
 .container {
+  /* Estilos do container principal do conteúdo */
   padding: 1.6rem 3.2rem;
   width: min(112rem, 100%);
   margin: 0 auto;
 }
 
 main {
+  /* Estilos da seção principal */
   background-color: var(--color-base-gray-300);
   overflow-y: scroll;
 }
@@ -47,6 +56,7 @@ main {
 header,
 nav,
 nav ul {
+  /* Estilos do cabeçalho, barra de navegação e lista de navegação */
   display: flex;
   align-items: center;
   gap: 7.2rem;
@@ -54,29 +64,32 @@ nav ul {
 }
 
 header form {
+  /* Estilos do formulário no cabeçalho */
   flex: 2;
 }
 
 nav ul {
+  /* Estilos dos itens da lista de navegação */
   list-style: none;
   font-size: 1.8rem;
   color: var(--color-base-gray-300);
 }
 
 ul li.active {
+  /* Estilo do item ativo na lista de navegação */
   color: var(--color-base-gray-900);
 }
 
 .img-profile {
+  /* Estilos da imagem de perfil */
   width: 4.2rem;
   height: 4.2rem;
-
   object-fit: cover;
-
   border-radius: 50%;
 }
 
 .input-wrapper label {
+  /* Estilos do label para acessibilidade no formulário */
   width: 1px;
   height: 1px;
   overflow: hidden;
@@ -84,63 +97,61 @@ ul li.active {
 }
 
 .input-wrapper input {
+  /* Estilos do campo de input */
   width: 100%;
   padding: 1.6rem;
   background-color: var(--color-base-gray-100);
-
   border: none;
   border-radius: 0.6rem;
-
   font-size: 1.6rem;
   font-weight: 600;
 }
 
 .input-wrapper input::placeholder {
+  /* Estilo do texto de placeholder */
   color: var(--color-base-gray-500);
   opacity: 0.56;
 }
 
-/* main h1 */
+/* Estilos da seção principal (main) */
 main h1 {
+  /* Estilos do título principal na seção principal */
   padding-top: 1.6rem;
   font-size: 2.4rem;
 }
 
 .gallery {
+  /* Estilos da galeria */
   margin-top: 3.2rem;
-
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2.2rem;
 }
 
 .item {
+  /* Estilos dos itens da galeria */
   background-color: var(--color-base-white);
   border-radius: 0.8rem;
   overflow: hidden;
 }
 
 .item img {
+  /* Estilos das imagens dos itens da galeria */
   width: 100%;
   aspect-ratio: 16/9;
   object-fit: cover;
-
   display: block;
-
-  /* transition-property: transform;
-  transition-duration: 300ms;
-  transition-delay: 0;
-  transition-timing-function: ease-in-out; */
-
   transition: transform 200ms ease-in-out;
 }
 
 .item img:hover {
+  /* Estilo de hover das imagens dos itens da galeria */
   filter: hue-rotate(7deg) contrast(101%) saturate(200%);
   transform: scale(1.1) rotate(-2deg);
 }
 
 .details {
+  /* Estilos dos detalhes dos itens da galeria */
   padding: 2.2rem;
   background-color: var(--color-base-white);
   z-index: 1;
@@ -148,48 +159,61 @@ main h1 {
 }
 
 .details h2 {
+  /* Estilos dos títulos dos detalhes dos itens da galeria */
   font-size: 1.8rem;
 }
 
 .tags {
+  /* Estilos das tags dos detalhes dos itens da galeria */
   margin-top: 1.2rem;
 }
 
 .tags span {
+  /* Estilos das tags individuais */
   padding: 0.6rem;
   background-color: var(--color-base-gray-100);
   border-radius: 0.4rem;
-
   line-height: 0;
   font-size: 1.2rem;
   text-transform: uppercase;
 }
 
+/* Estilos do rodapé */
 footer p {
+  /* Estilos do parágrafo no rodapé */
   text-align: center;
   padding: 1.6rem;
   font-weight: 600;
 }
+
+/* Animações */
 header {
+  /* Animação de entrada para o cabeçalho */
   --startY: -100%;
   animation: move 0.2s;
 }
 
 footer {
+  /* Animação de entrada para o rodapé */
   --startY: 100%;
   animation: move 0.2s;
 }
+
 @keyframes move {
+  /* Definição da animação */
   from {
     transform: translateY(var(--startY));
   }
 }
 
 .item {
+  /* Animação de entrada para os itens da galeria */
   --delay: 0.4s;
   animation: appear 0.4s var(--delay) backwards;
 }
+
 @keyframes appear {
+  /* Definição da animação de entrada */
   0% {
     opacity: 0;
     transform: scale(0.7);
